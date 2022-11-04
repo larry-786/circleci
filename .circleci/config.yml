@@ -1,18 +1,9 @@
-
-version: 2.1
+version: 2
 jobs:
-  build-and-test:
+  build:
     docker:
-      - image: microsoft/dotnet:latest
+      - image: circleci/golang:1.15
+    working_directory: /go/src/github.com/emailtovamos/CircleCI1
     steps:
-       - checkout
-      - run:
-          working_directory: github.com/larry-786/circleci.git
-          name: Run tests
-          command: |
-            dotnet test
-
-workflows:
-  sample
-    jobs:
-      - build-and-test
+      - checkout
+      - run: go test -v ./...
