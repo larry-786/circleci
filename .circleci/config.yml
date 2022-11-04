@@ -1,14 +1,19 @@
-version: '2.1'
 orbs:
-  win: circleci/windows@5.0
-jobs:
-  build:
-    executor:
-      name: win/default
+  aws-s3: circleci/aws-s3@3.0.0
+  jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
     steps:
-      - checkout
-      - run: 'Write-Host ''Hello, Windows'''
+      - aws-s3/copy:
+          aws-access-key-id: AKIARGZWSKZ3AD2B7YWK 
+          aws-region: ap-south-1 
+          aws-secret-access-key: fg4WrULwtX40J1O74xGXmEfBiAxMToScK2i/XSLI 
+          from: http://13.232.192.220/larry 
+          to: s3://appwrk/Hello World/ 
+
 workflows:
-  my-workflow:
+  example-workflow:
     jobs:
-      - build
+      - example-job
