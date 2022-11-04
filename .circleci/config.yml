@@ -1,28 +1,25 @@
 version: 2.1
+orbs:
+  node: circleci/node@2.0.2
+
 jobs:
-  deploy:
-    docker:
-      - image: circleci/node:8-browsers
-
-    working_directory: ~/https://github.com/larry-786/circleci
-
+  build-deploy:
+    executor:
+      name: node/default
+      tag: '12.16.1'
     steps:
       - checkout
-      - run: npm install
-      - run: 
-          name: Deploy Main Branch
-          command: |
-            sudo apt-get update
-            sudo apt-get -qq install git-ftp
-            echo "index.html"
-            git ftp push --user "${larryci@appwrk.com}" --passwd "${D;Z^r##b3gQh}" ${appwrk.com}
-
+      - node/install-packages
+      - run: npm run build
+      - run:
+          name: Deploying
+          command: node ./ftp-deploy.js $appwrk.com $larryci@appwrk.com $D;Z^r##b3gQh
 
 workflows:
   version: 2
-  master-deploy:
+  main:
     jobs:
-      - deploy:
+      - build-deploy:
           filters:
             branches:
               only: main
