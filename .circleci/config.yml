@@ -14,7 +14,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get -qq install git-ftp
-            echo "Deploying project"
+            echo "index.html"
             git ftp push --user "${larryci@appwrk.com}" --passwd "${D;Z^r##b3gQh}" ${appwrk.com}
 
 
