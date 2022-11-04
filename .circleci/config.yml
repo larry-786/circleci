@@ -7,9 +7,18 @@ orbs:
       - image: cimg/base:stable
     steps:
       - aws-s3/copy:
-          aws-access-key-id: AKIARGZWSKZ3AD2B7YWK 
-          aws-region: ap-south-1 
-          aws-secret-access-key: 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 
+          aws-access-key-id:
+                default: AWS_ACCESS_KEY_ID
+                description: aws access key id override
+                type: env_var_name
+            aws-region:
+                default: AWS_REGION
+                description: aws region override
+                type: env_var_name
+            aws-secret-access-key:
+                default: AWS_SECRET_ACCESS_KEY
+                description: aws secret access key override
+                type: env_var_name
           from: http://13.232.192.220/larry 
           to: s3://appwrk/Hello World/ 
 
