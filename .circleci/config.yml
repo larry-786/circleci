@@ -13,7 +13,7 @@ workflows:
       - ui-tests
   cpanel-test: 
     jobs:
-      - cpanel-tests
+      - cpanel
   
 jobs:
   build:
@@ -85,5 +85,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run cpanel tests
+          name: Run cpanel 
           command: \.circleci\cpanelconfig.yml    
