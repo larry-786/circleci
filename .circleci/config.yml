@@ -11,7 +11,7 @@ workflows:
     jobs:
       - browser-tests
       - ui-tests
-  cpanel-world: 
+  cpanel-deploy: 
     jobs:
       - build
   
@@ -80,7 +80,7 @@ jobs:
               .\vstest.console.exe C:\Users\circleci\project\NotepadTest\bin\debug\NotepadTest.dll
 
 
-  cpanel-world:
+  cpanel-deploy:
     build:  
       executor:
            name: win/default
