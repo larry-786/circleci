@@ -82,8 +82,10 @@ jobs:
   cpanel-test:
     executor:
       name: win/default
+    working_directory: \.circleci
     steps:
-      - checkout
+      - checkout:
+          path: \.circleci\
       - run:
           name: Run cpanel 
           command: \.circleci\cpanelconfig.yml    
