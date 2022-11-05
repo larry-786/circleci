@@ -85,5 +85,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run cpanel tests
+          name: Run cpanel run
           command: \.circleci\cpanelconfig.yml    
