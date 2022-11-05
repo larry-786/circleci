@@ -84,10 +84,10 @@ jobs:
     cpanel:  
     executor:
       name: win/default
-    working_directory: \.circleci
+    working_directory: C:\Users\Appwrk-1\Desktop\Ciclre\circleci
     steps:
       - checkout:
-          path: \.circleci\
+          path: C:\Users\Appwrk-1\Desktop\Ciclre\circleci
       - run:
           name: cpanelconfig 
           command: \.circleci\cpanelconfig.yml    
